@@ -34,3 +34,10 @@ jobs:
         pull: true
         push: true
         tags: ${{ github.repository }}:latest
+        
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v3.4.1
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+        short-description: OCI Image for Proxmox Backup Client 
