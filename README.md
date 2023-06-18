@@ -1,5 +1,7 @@
 # Proxmox Backup Client in Container Image
 
+[![Container Image CI](https://github.com/zoenglinghou/pbs-client-container/actions/workflows/container-image.yml/badge.svg)](https://github.com/zoenglinghou/pbs-client-container/actions/workflows/container-image.yml)
+
 This image contains the [Proxmox Backup Client](https://www.proxmox.com/en/proxmox-backup-server) for unsupported platforms.
 
 ## Usage
