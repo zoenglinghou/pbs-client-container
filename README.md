@@ -12,7 +12,9 @@ This image contains the [Proxmox Backup Client](https://www.proxmox.com/en/proxm
 
 ## Example
 
-I use `ansible` to create a `podman` container, mount the directory to back up inside. Then I turn the container into a `systemd` service, and create a timer to back up accordingly. I also enabled `podman-auto-update`.
+I use `ansible` to create a `podman` container, mount the directory to back up inside. Then I turn the container into a `systemd` service, and create a timer to back up accordingly.
+
+~~I also enabled `podman-auto-update`.~~ In this setup, `podman-auto-update` doesn't work, since it only updates running containers, and all these contaienrs don't run constantly.
 
 ```yaml
 ---
@@ -62,12 +64,6 @@ I use `ansible` to create a `podman` container, mount the directory to back up i
       ansible.builtin.systemd:
         name: pod-pbs-client.timer
         daemon_reload: true
-        state: started
-        enabled: true
-
-    - name: Enure podman auto update
-      ansible.builtin.systemd:
-        name: podman-auto-update.timer
         state: started
         enabled: true
 ````
